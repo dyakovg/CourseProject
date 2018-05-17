@@ -3,7 +3,7 @@
 namespace CourseProject.db.Entities
 {
     using System.ComponentModel.DataAnnotations;
-    class Property : BaseEntity
+    public class Property : BaseEntity
     {
         [Required, StringLength(20)]
         public string Type { get; set; }
