@@ -1,0 +1,51 @@
+﻿@using CourseProject.db.Entities
+@model List<Property>
+
+@{
+    ViewBag.Title = "Списък на наличните имоти";
+}
+
+<div class="row">
+    <h4>Списък на наличните имоти</h4>
+    <hr />
+
+    <div class="table-actions">
+        @Html.ActionLink("+ Нов", "Edit", null, new { @class = "btn btn-default" })
+    </div>
+
+    <table class="table table-bordered table-responsive">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Bedrooms</th>
+                <th>Rooms</th>
+                <th>Area</th>
+                <th>Floor</th>
+                <th>ResidentialDistrict</th>
+                <th>City</th>
+                <th>Price</th>
+                <th>Year</th>
+                <th>Extras</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < 4; i++)
+            {
+                <tr>
+                    <td colspan="5">
+                        Няма намерени резултати!
+                    </td>
+                </tr>
+            }
+            @for (int i = 0; i < 3; i++)
+            {
+            <tr>
+                <td><h4>@ViewBag.Property</h4></td>
+                <td><h4>@ViewBag.Property</h4></td>
+                <td><h4>@ViewBag.Property</h4></td>
+                <td><h4>@ViewBag.Property</h4></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -20,7 +20,7 @@ namespace CourseProject.db.Entities
         [Required, StringLength(40)]
         public string Address { get; set; }
 
-        [Required, StringLength(20)]
+        [Required]
         [Index(IsUnique = true)]
         public int PersonalNO { get; set; }
     }

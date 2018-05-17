@@ -26,7 +26,7 @@ namespace CourseProject.db.Entities
         [Required, StringLength(20)]
         public string City { get; set; }
 
-        [Required, StringLength(20)]
+        [Required]
         public decimal Price { get; set; }
 
         [Required]
