@@ -10,42 +10,31 @@
     <hr />
 
     <div class="table-actions">
-        @Html.ActionLink("+ Нов", "Edit", null, new { @class = "btn btn-default" })
+        @Html.ActionLink("+ Нов", "Add", null, new { @class = "btn btn-default" })
     </div>
 
-    <table class="table table-bordered table-responsive">
-        <thead>
-            <tr>
-                <th>Type</th>
-                <th>Bedrooms</th>
-                <th>Rooms</th>
-                <th>Area</th>
-                <th>Floor</th>
-                <th>ResidentialDistrict</th>
-                <th>City</th>
-                <th>Price</th>
-                <th>Year</th>
-                <th>Extras</th>
-            </tr>
-        </thead>
-        <tbody>
-            @for (int i = 0; i < 4; i++)
-            {
-                <tr>
-                    <td colspan="5">
-                        Няма намерени резултати!
-                    </td>
-                </tr>
-            }
-            @for (int i = 0; i < 3; i++)
-            {
-            <tr>
-                <td><h4>@ViewBag.Property</h4></td>
-                <td><h4>@ViewBag.Property</h4></td>
-                <td><h4>@ViewBag.Property</h4></td>
-                <td><h4>@ViewBag.Property</h4></td>
-            </tr>
-            }
-        </tbody>
-    </table>
+    <div class="row">
+        @foreach (Property p in Model)
+        {
+            <div class="col-md-3 product-container">
+                <h4>@p.Type  </h4>
+                @if (p.Id != 0)
+                {
+                    <div class="ratings">
+                        <div class="empty-stars"></div>
+                        <div class="full-stars" style="width:@p.Id%"></div> <br>@((double)p.Id / 20)<span>/5</span>
+                    </div>
+                }
+                else
+                {
+                    <p><br /></p>
+                }
+                <span class="price"><br />@p.Price</span> <br />
+                <span class="product-buttons">
+                    <a href="/Property/@p.Id" class="btn btn-success">Разгледай</a><br />
+                </span>
+
+            </div>
+        }
+    </div>
 </div>

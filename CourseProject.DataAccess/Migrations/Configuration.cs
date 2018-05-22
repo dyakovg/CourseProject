@@ -38,6 +38,17 @@ namespace CourseProject.DataAccess.Migrations
 
                 context.SaveChanges();
             }
+
+            if (!context.Properties.Any())
+            {
+                context.Properties.AddOrUpdate(x => x.Id,
+                new Property() { Id = 1, Type = "Apartament", Bedrooms = 2, Rooms = 5, Area = 5, Floor = 1, ResidentialDistrict = "Pishmana", City = "Veliko Tarnovo", Price = 39999, Year = 1998, Extras = "Small Garden, Parking lot" },
+                new Property() { Id = 2, Type = "Apartament", Bedrooms = 1, Rooms = 2, Area = 4, Floor = 8, ResidentialDistrict = "Sini Kamani", City = "Sliven", Price = 80999, Year = 2004, Extras = "Beautiful View, Schools in area " }
+
+                );
+
+                context.SaveChanges();
+            }
             
         }
     }
