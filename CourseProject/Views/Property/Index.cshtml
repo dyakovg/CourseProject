@@ -1,5 +1,5 @@
-﻿@using CourseProject.db.Entities
-@model List<Property>
+﻿@using CourseProject.Models
+@model List<PropertiesViewModel>
 
 @{
     ViewBag.Title = "Списък на наличните имоти";
@@ -14,7 +14,7 @@
     </div>
 
     <div class="row">
-        @foreach (Property p in Model)
+        @foreach (var p in Model)
         {
             <div class="col-md-3 product-container">
                 <h4>@p.Type  </h4>
