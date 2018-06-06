@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Web.Mvc;
 using CourseProject.DataAccess;
 using CourseProject.Models;
+using System.Linq;
 
 namespace CourseProject.Controllers
 {
@@ -24,12 +25,12 @@ namespace CourseProject.Controllers
             List<Property> properties = repo.GetAll();
             List<PropertiesViewModel> model = new List<PropertiesViewModel>();
 
-            foreach (Property p in properties)
+            foreach (var p in properties)
             {
-                PropertiesViewModel pm = new PropertiesViewModel()
-                {
-                    AllProperties = p.Type
-                };
+                PropertiesViewModel pm = new PropertiesViewModel();
+
+                pm.AllProperties.Add(p);
+               
 
                 model.Add(pm);
             }

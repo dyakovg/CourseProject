@@ -23,7 +23,7 @@ namespace CourseProject.DataAccess.Repositories
 
         public BaseRepository(DbContext ctx) => Context = ctx;
 
-        public List<T> GetAll() => DBSet.ToList();
+        public List<T> GetAll() => Context.Set<T>().ToList();
         public T GetByID(int id) => Context.Set<T>().Find(id);
         public void Create(T item)
         {

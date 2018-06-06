@@ -15,6 +15,10 @@ namespace CourseProject.Models
         public int PropertyId { get; set; }
 
         [Required]
+        [ForeignKey("PropertyId")]
+        public virtual Property Property { get; set; }
+
+        [Required]
         public string Type { get; set; }
 
         [Required]
