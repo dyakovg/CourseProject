@@ -11,19 +11,27 @@
 
     <div class="table-actions">
         @Html.ActionLink("+ Нов", "Add", null, new { @class = "btn btn-default" })
-    </div>
-
-    <div class="row">
-        @foreach (var p in Model)
+        @if (Request.UrlReferrer != null)
         {
-            <div class="col-md-3 product-container">
-                <h4>@p.Type  </h4>
-                <span class="price"><br />@p.Price</span> <br />
-                <span class="product-buttons">
-                    <a href="/Property/@p.PropertyId" class="btn btn-success">Разгледай</a><br />
-                </span>
-
-            </div>
+            <a class="bottomNav" onclick="history.go(-1); return false;" href="#">Назад</a><br />
         }
     </div>
-</div>
+        @foreach (var p in Model)
+        {
+            
+                for (int l = 0; l < 1; l++)
+                {
+                
+                    <div class="col-md-3 product-container">
+                        <img src="~/Content/property.jpg" width=150 />
+                        <h4>@p.Property</h4>
+                        <span class="price"><br />@p.Price</span> <br />
+                        <span class="product-buttons">
+                            @Html.ActionLink("Разгледай", "ViewProperty", "Property", new { propertyId = p.Id }, new { @class = "btn btn-primary" })
+                        </span>
+                    </div>
+                
+                }
+            
+        }
+    </div>

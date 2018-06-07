@@ -49,7 +49,7 @@
   <ItemGroup>
     <Compile Include="Entities\BaseEntity.cs" />
     <Compile Include="Entities\Client.cs" />
-    <Compile Include="Entities\IBaseInterface.cs" />
+    <Compile Include="Entities\IBaseEntity.cs" />
     <Compile Include="Entities\Property.cs" />
     <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\User.cs" />

@@ -8,12 +8,8 @@ using CourseProject.db.Entities;
 
 namespace CourseProject.Models
 {
-    public class PropertiesViewModel
+    public class PropertiesViewModel : BaseViewModel
     {
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-        [Key]
-        public int PropertyId { get; set; }
-
         [Required]
         [ForeignKey("PropertyId")]
         public virtual Property Property { get; set; }
@@ -47,11 +43,19 @@ namespace CourseProject.Models
 
         public string Extras { get; set; }
 
-        public List<Property> AllProperties { get; set; }
-
-        public List<Property> GetProperties()
+        public PropertiesViewModel (Property p)
         {
-            return AllProperties;
+            Type = p.Type;
+            Id = p.Id;
+            Bedrooms = p.Bedrooms;
+            Rooms = p.Rooms;
+            Area = p.Area;
+            Floor = p.Floor;
+            ResidentialDistrict = p.ResidentialDistrict;
+            City = p.City;
+            Price = p.Price;
+            Year = p.Year;
+            Extras = p.Extras;
         }
     }
 }

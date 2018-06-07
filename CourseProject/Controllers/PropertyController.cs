@@ -27,17 +27,22 @@ namespace CourseProject.Controllers
 
             foreach (var p in properties)
             {
-                PropertiesViewModel pm = new PropertiesViewModel();
-
-                pm.AllProperties.Add(p);
-               
+                PropertiesViewModel pm = new PropertiesViewModel(p);
 
                 model.Add(pm);
             }
-           
-           
 
             return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult ViewProperty(int propertyId)
+        {
+            PropertyRepository propRepo = new PropertyRepository();
+            var propertyObj = propRepo.GetByID(propertyId);
+            var viewModel = new ViewPropertyViewModel(propertyObj);
+
+            return View(viewModel);
         }
     }
 }

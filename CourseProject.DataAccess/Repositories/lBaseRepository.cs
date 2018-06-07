@@ -14,6 +14,6 @@ namespace CourseProject.DataAccess.Repositories
 
         void Create(T item);
 
-        void Update(T item, Func<T, bool> findByIDPredecate);
+        void Update(T item, Func<T, bool> findByIDPredecate); 
     }
 }

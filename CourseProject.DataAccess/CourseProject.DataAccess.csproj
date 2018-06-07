@@ -65,6 +65,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\lBaseRepository.cs" />
+    <Compile Include="Repositories\PropertyRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -13,15 +13,17 @@ namespace CourseProject.DataAccess.Repositories
     {
         protected DbContext Context;
 
-        protected DbSet<T> DBSet
+        protected DbSet<T> DBSet;
+
+        public BaseRepository(DbContext ctx)
         {
-            get
-            {
-                return Context.Set<T>();
-            }
+            Context = ctx;
         }
 
-        public BaseRepository(DbContext ctx) => Context = ctx;
+        public BaseRepository()
+        {
+
+        }
 
         public List<T> GetAll() => Context.Set<T>().ToList();
         public T GetByID(int id) => Context.Set<T>().Find(id);
@@ -69,5 +71,6 @@ namespace CourseProject.DataAccess.Repositories
                 Update(Item, item => item.Id == Item.Id);
             }
         }
+
     }
 }
